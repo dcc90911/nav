@@ -29,7 +29,7 @@ publishDir            = "public"					# 站点静态文件保存目录
     logoCollapseDark  = "assets/images/bt.png"
     
 [markup.goldmark.renderer]
-    unsafe = true
+    unsafe = true   
 
 [params.footer]
     copyright = '本站内容源自互联网，如有内容侵犯了你的权益，请联系删除相关内容'
