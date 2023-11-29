@@ -1,46 +1,31 @@
-name: Hugo Actions # 名字自取
-
+name: Generate Site
 on:
   push:
     branches:
-      - main  # 这里的意思是当 main 分支发生 push 的时候，运行下面的 jobs
-
+      - master
 jobs:
-  deploy: 
-    runs-on: ubuntu-20.04 	# 在什么环境运行任务
+  build-deploy:
+    runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v3   # 引用 actions/checkout 这个 action，与所在的 github 仓库同名
+      - name: Check out source
+        uses: actions/checkout@v2
+        
+      - name: Setup hugo
+        uses: peaceiris/actions-hugo@v2
         with:
-         submodules: true  # Fetch Hugo themes (true OR recursive) 获取 submodule 主题
-         fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-         
-      - name: Setup Hugo	# 步骤名自取
-        uses: peaceiris/actions-hugo@v2   # Hugo 官方提供的 action，用于在任务环境中获取 hugo
-        with:
-          hugo-version: '0.89.4'	# 获取指定版本的 hugo
-          extended: false
-
-      - name: Build Site
-        run: |
-          pwd
-          ls
-          cp -R exampleSite/* .
-          #hugo --themesDir ../ --baseURL https://shenweiyan.github.io/WebStack-Hugo/
+          hugo-version: "latest" # 可以修改为你使用的 Hugo 版本
+          extended: true # 设置是否需要 extended 版本
           
-      - name: Deploy Pages
-        uses: peaceiris/actions-gh-pages@v3	  # 一个自动发布 github pages 的 action
+      - name: Build
+        run: hugo --minify
+        
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          external_repository: shenweiyan/nav	  # 发布到哪个 repo
-          personal_token: ${{ secrets.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 }}	# 发布到其他 repo 需要在对应的 repo 上粘贴生成的 personal_access_token
-          #1. 创建 Personal_Access_Token：
-          #   GitHub 个人账号 -> Settings -> Developer settings -> Personal access tokens ->  Tokens (classic) -> New personal access token (classic)
-          #   - Expiration: No expiration
-          #   - Select scopes: 全选
-          #2. 粘贴 Personal_Access_Token：
-          #   进入目标 repo -> Settings -> Security -> Secrets and variables -> Actions，选择 New repository secret -> 粘贴前面生成的 personal_access_token
-          publish_dir: ./public	
-          #注意这里指的是 Pages 要发布哪个文件夹的内容，而不是指发布到目标仓库的什么位置；因为 hugo 默认生成静态网页到 public 文件夹，所以这里发布 public 文件夹里的内容。
-          publish_branch: gh-pages	# 发布到哪个 branch
-          force_orphan: true
-          full_commit_message: ${{ github.event.head_commit.message }}
-
+          deploy_key: ${{ secrets.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  }} # 另外还支持 github_token 和 personal_token
+          external_repository: nav.github.io` # 修改为你的 GitHub Pages 仓库
+          publish_dir: ./public
+          keep_files: false
+          publish_branch: master
+          # 如果使用自定义域名，还需要添加下面一行配置
+          # cname: www.fournoas.com
