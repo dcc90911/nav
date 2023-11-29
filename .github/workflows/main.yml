@@ -23,7 +23,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.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  }} # 另外还支持 github_token 和 personal_token
-          external_repository: nav.github.io` # 修改为你的 GitHub Pages 仓库
+          external_repository: dcc90911/nav.github.io` # 修改为你的 GitHub Pages 仓库
           publish_dir: ./public
           keep_files: false
           publish_branch: master
