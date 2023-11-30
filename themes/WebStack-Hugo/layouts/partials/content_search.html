@@ -8,13 +8,16 @@
               class="anchor"
               style="position: absolute; left: 50%; opacity: 0"
             ></div>
-            <!-- <label for="type-baidu" data-id="group-a"><span>常用</span></label> -->
+            <label for="type-baidu" data-id="group-a"><span>常用</span></label>
             <label for="type-baidu1" data-id="group-b"><span>搜索</span></label>
-            <!-- <label for="type-whois" data-id="group-c"><span>工具</span></label>
+            <label for="type-whois" data-id="group-c"><span>工具</span></label>
             <label for="type-zhihu" data-id="group-d"><span>社区</span></label>
             <label for="type-taobao1" data-id="group-e"
               ><span>生活</span></label
-            > -->
+            >
+            <label for="type-zhaopin" data-id="group-f"
+              ><span>求职</span></label
+            >
           </div>
         </div>
       </div>
@@ -56,7 +59,19 @@
                 ><span class="text-muted">百度</span></label
               >
             </li>
-
+            <li>
+              <input
+                hidden=""
+                type="radio"
+                name="type"
+                id="type-bing"
+                value="https://cn.bing.com/search?q="
+                data-placeholder="微软 Bing 搜索"
+              />
+              <label for="type-bing"
+                ><span class="text-muted">必应</span></label
+              >
+            </li>
             <li>
               <input
                 hidden=""
@@ -70,7 +85,19 @@
                 ><span class="text-muted">谷歌</span></label
               >
             </li>
-
+            <li>
+              <input
+                hidden=""
+                type="radio"
+                name="type"
+                id="type-anaconda"
+                value="https://anaconda.org/search?q="
+                data-placeholder="Anaconda 软件搜索"
+              />
+              <label for="type-anaconda"
+                ><span class="text-muted">软件</span></label
+              >
+            </li>
             <li>
               <input
                 hidden=""
@@ -114,18 +141,41 @@
                 ><span class="text-muted">谷歌</span></label
               >
             </li>
-
+            <li>
+              <input
+                hidden=""
+                type="radio"
+                name="type"
+                id="type-360"
+                value="https://www.so.com/s?q="
+                data-placeholder="360 好搜"
+              />
+              <label for="type-360"><span class="text-muted">360</span></label>
+            </li>
+            <li>
+              <input
+                hidden=""
+                type="radio"
+                name="type"
+                id="type-sogo"
+                value="https://www.sogou.com/web?query="
+                data-placeholder="搜狗搜索"
+              />
+              <label for="type-sogo"
+                ><span class="text-muted">搜狗</span></label
+              >
+            </li>
             <li>
               <input
                 hidden=""
                 type="radio"
                 name="type"
                 id="type-bing1"
-                value="https://github.com/search?utf8=%E2%9C%93&type=repositories&q="
-                data-placeholder="github搜索"
+                value="https://cn.bing.com/search?q="
+                data-placeholder="微软 Bing 搜索"
               />
               <label for="type-bing1"
-                ><span class="text-muted">github</span></label
+                ><span class="text-muted">必应</span></label
               >
             </li>
             <li>
@@ -134,10 +184,10 @@
                 type="radio"
                 name="type"
                 id="type-sm"
-                value="https://www.sov2ex.com/?q="
-                data-placeholder="V2EX搜索"
+                value="https://yz.m.sm.cn/s?q="
+                data-placeholder="UC 移动端搜索"
               />
-              <label for="type-sm"><span class="text-muted">V2EX</span></label>
+              <label for="type-sm"><span class="text-muted">神马</span></label>
             </li>
           </ul>
         </div>
