@@ -7,8 +7,8 @@
             <div class="s-type">
               <span></span>
               <div class="s-type-list">
-                <label for="m_type-baidu" data-id="group-a">常用</label>
-
+                <label for="m_type-baidu" data-id="group-b">常用</label>
+                <label for="m_type-baidu1" data-id="group-b">社区</label>
               </div>
             </div>
             <div class="search-group group-a"><span class="type-text text-muted">常用</span>
@@ -17,13 +17,23 @@
                     value="https://www.baidu.com/s?wd=" data-placeholder="百度一下，你就知道">
                   <label for="m_type-baidu"><span class="text-muted">百度</span></label>
                 </li>
-
+                <li><input hidden="" type="radio" name="type2" id="m_type-bing" value="https://cn.bing.com/search?q="
+                    data-placeholder="微软必应搜索">
+                  <label for="m_type-bing"><span class="text-muted">必应</span></label>
+                </li>
                 <li><input hidden="" type="radio" name="type2" id="m_type-google"
                     value="https://www.google.com/search?q=" data-placeholder="谷歌搜索">
                   <label for="m_type-google"><span class="text-muted">谷歌</span></label>
                 </li>
+
+              </ul>
+            </div>
+
+            <div class="search-group group-b"><span class="type-text text-muted">社区</span>
+              <ul class="search-type">
+
                 <li>
-                  <input hidden="" type="radio" name="type2" id="m_type-360"
+                  <input hidden="" type="radio" name="type2" id="m_type-baidu1"
                     value="https://github.com/search?utf8=%E2%9C%93&q=&type=Repositories&q="
                     data-placeholder="github搜索" />
                   <label for="m_type-360"><span class="text-muted">github</span></label>
